@@ -1,0 +1,1 @@
+Use ITK_SNAP to change the nii data to .vtk data.

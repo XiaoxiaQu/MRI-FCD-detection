@@ -1,0 +1,8 @@
+%% use MITK WORK bench to save .vtp as .vtk file.
+
+/media/xiaqu/HardDisk/research/MRI_FCD/Patient_T1_v2/Patient_001/Hong2014/curvatures/Step2_GM_surface_1.vtp
+
+
+to 
+/media/xiaqu/HardDisk/research/MRI_FCD/Patient_T1_v2/Patient_001/Hong2014/curvatures/Step2_GM_surface_2.vtk
+
