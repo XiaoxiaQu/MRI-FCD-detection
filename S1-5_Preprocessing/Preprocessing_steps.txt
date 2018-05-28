@@ -1,0 +1,35 @@
+
+Step1: check orientation
+You may use ITK-SNAP (http://www.itksnap.org/pmwiki/pmwiki.php) or mricron (https://www.nitrc.org/projects/mricron/) software to view the original images, viewly check  the orientation regarding Left, Right, Anterior, Posterior, Inferior, Superior. 
+
+Step2: brain extract 
+use the FSL BET tool to extract the brain regions of all T1 images.
+https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/BET
+
+Please be careful,sometimes, neck and other non-brain region will be remained. After brain extraction, please viewly check the images, make sure the brain region is well extracted. 
+
+Step3: registration
+use the command FLIRT(rigid) and FNIRT(affine) to regiter the T1 images into the stardard MNI space. 
+
+Step4: tissue segmentation
+apply FAST (FMRIB's  Automated Segmentation Tool£© of FSL to segment the registered T1 images. 
+The outputs are :
+1>Patient_001_affine_pve_0.nii.gz  (PVE map of CSF)
+2>Patient_001_affine_pve_1.nii.gz (PVE map of GM)
+3>Patient_001_affine_pve_2.nii.gz (PVE map of WM)
+4>Patient_001_affine_restore.nii.gz (results of Non-uniform correction)
+
+Step5: atlas segment
+to avoid false positive results appear in the FCD non-related regions. We remove the regions including the following brain regions:
+1> cerebellum and brain stem (from the file data of FSL named MNI152_T1_2mm_strucseg.nii.gz  within fsl-mni152-templates) 
+2> striatum (from the file data of FSL named  striatum-structural-1mm.nii.gz within oxford-striatal-atlas)
+3> thalamus (from the file data of FSL named  Thalamus-prob-1mm.nii.gz within oxford-thalamic-connectivity-atlas)
+
+
+
+
+
+
+
+
+
